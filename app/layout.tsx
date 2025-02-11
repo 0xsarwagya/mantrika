@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
-
 import { ThemeProvider } from '@/components/theme-provider';
-
 import './globals.css';
 import { SessionProvider } from 'next-auth/react';
 
