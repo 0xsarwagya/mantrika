@@ -12,7 +12,7 @@ export const myProvider = customProvider({
   languageModels: {
     "chat-model-small": openai("gpt-4o-mini"),
     "chat-model-large": openai("gpt-4o"),
-    "chat-model-reasoning": wrapLanguageModel({
+    "mantrika-model-reasoning": wrapLanguageModel({
       model: fireworks("accounts/fireworks/models/deepseek-r1"),
       middleware: extractReasoningMiddleware({ tagName: "think" }),
     }),
@@ -37,7 +37,7 @@ export const myProvider = customProvider({
   languageModels: {
     "chat-model-small": openai("gpt-4o-mini"),
     "chat-model-large": anthropic("claude-3-5-sonnet"), // Replace openai with anthropic
-    "chat-model-reasoning": wrapLanguageModel({
+    "mantrika-model-reasoning": wrapLanguageModel({
       model: fireworks("accounts/fireworks/models/deepseek-r1"),
       middleware: extractReasoningMiddleware({ tagName: "think" }),
     }),

@@ -1,9 +1,13 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import { MessageIcon, VercelIcon } from './icons';
+import { useSession } from 'next-auth/react';
 
 export const Overview = () => {
+  const { data } = useSession();
   return (
     <motion.div
       key="overview"
@@ -20,31 +24,13 @@ export const Overview = () => {
           <MessageIcon size={32} />
         </p>
         <p>
-          This is an{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://github.com/vercel/ai-chatbot"
-            target="_blank"
-          >
-            open source
-          </Link>{' '}
-          chatbot template built with Next.js and the AI SDK by Vercel. It uses
-          the{' '}
-          <code className="rounded-md bg-muted px-1 py-0.5">streamText</code>{' '}
-          function in the server and the{' '}
-          <code className="rounded-md bg-muted px-1 py-0.5">useChat</code> hook
-          on the client to create a seamless chat experience.
+          Welcome <strong>{data?.user?.email}</strong>
         </p>
         <p>
-          You can learn more about the AI SDK by visiting the{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://sdk.vercel.ai/docs"
-            target="_blank"
-          >
-            docs
-          </Link>
-          .
+          Meet Mantrika—an innovative AI assistant created by Sarwagya Singh and
+          fine-tuned with DeepSeek. Built for general-purpose tasks, Mantrika
+          seamlessly integrates with your workflow to deliver smart insights,
+          effective solutions, and friendly guidance.
         </p>
       </div>
     </motion.div>

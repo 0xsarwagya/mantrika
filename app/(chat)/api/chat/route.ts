@@ -18,12 +18,7 @@ import {
   getMostRecentUserMessage,
   sanitizeResponseMessages,
 } from '@/lib/utils';
-
 import { generateTitleFromUserMessage } from '../../actions';
-import { createDocument } from '@/lib/ai/tools/create-document';
-import { updateDocument } from '@/lib/ai/tools/update-document';
-import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
-import { getWeather } from '@/lib/ai/tools/get-weather';
 
 export const maxDuration = 60;
 
@@ -68,15 +63,6 @@ export async function POST(request: Request) {
         experimental_activeTools: [],
         experimental_transform: smoothStream({ chunking: 'word' }),
         experimental_generateMessageId: generateUUID,
-        tools: {
-          getWeather,
-          createDocument: createDocument({ session, dataStream }),
-          updateDocument: updateDocument({ session, dataStream }),
-          requestSuggestions: requestSuggestions({
-            session,
-            dataStream,
-          }),
-        },
         onFinish: async ({ response, reasoning }) => {
           if (session.user?.id) {
             try {
@@ -106,12 +92,11 @@ export async function POST(request: Request) {
           functionId: 'stream-text',
         },
       });
-
       result.mergeIntoDataStream(dataStream, {
         sendReasoning: true,
       });
     },
-    onError: () => {
+    onError: (e) => {
       return 'Oops, an error occured!';
     },
   });
