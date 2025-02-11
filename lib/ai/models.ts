@@ -1,5 +1,4 @@
-import { openai } from '@ai-sdk/openai';
-import { fireworks } from '@ai-sdk/fireworks';
+import { groq } from '@ai-sdk/groq';
 import {
   customProvider,
   extractReasoningMiddleware,
@@ -10,18 +9,20 @@ export const DEFAULT_CHAT_MODEL: string = 'chat-model-small';
 
 export const myProvider = customProvider({
   languageModels: {
-    'chat-model-small': openai('gpt-4o-mini'),
-    'chat-model-large': openai('gpt-4o'),
+    'chat-model-small': groq('llama-3.1-8b-instant'),
+    'chat-model-large': groq('llama-3.3-70b-versatile'),
     'chat-model-reasoning': wrapLanguageModel({
-      model: fireworks('accounts/fireworks/models/deepseek-r1'),
+      model: groq('deepseek-r1-distill-llama-70b'),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
-    'title-model': openai('gpt-4-turbo'),
-    'block-model': openai('gpt-4o-mini'),
-  },
-  imageModels: {
-    'small-model': openai.image('dall-e-2'),
-    'large-model': openai.image('dall-e-3'),
+    'title-model': wrapLanguageModel({
+      model: groq('deepseek-r1-distill-llama-70b'),
+      middleware: extractReasoningMiddleware({ tagName: 'think' }),
+    }),
+    'block-model': wrapLanguageModel({
+      model: groq('deepseek-r1-distill-llama-70b'),
+      middleware: extractReasoningMiddleware({ tagName: 'think' }),
+    }),
   },
 });
 
@@ -33,18 +34,18 @@ interface ChatModel {
 
 export const chatModels: Array<ChatModel> = [
   {
-    id: 'chat-model-small',
-    name: 'Small model',
+    id: 'mantrika-model-small',
+    name: 'Mantrika Small model',
     description: 'Small model for fast, lightweight tasks',
   },
   {
-    id: 'chat-model-large',
-    name: 'Large model',
+    id: 'mantrika-model-large',
+    name: 'Mantrika Large model',
     description: 'Large model for complex, multi-step tasks',
   },
   {
-    id: 'chat-model-reasoning',
-    name: 'Reasoning model',
+    id: 'mantrika-model-reasoning',
+    name: 'Mantrika Reasoning model',
     description: 'Uses advanced reasoning',
   },
 ];
