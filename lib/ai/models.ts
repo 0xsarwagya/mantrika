@@ -1,11 +1,15 @@
-import { groq } from '@ai-sdk/groq';
+import { createGroq } from '@ai-sdk/groq';
 import {
   customProvider,
   extractReasoningMiddleware,
   wrapLanguageModel,
 } from 'ai';
 
-export const DEFAULT_CHAT_MODEL: string = 'chat-model-small';
+export const groq = createGroq({
+  apiKey: process.env.GROQ_API_KEY
+})
+
+export const DEFAULT_CHAT_MODEL: string = 'chat-model-reasoning';
 
 export const myProvider = customProvider({
   languageModels: {
