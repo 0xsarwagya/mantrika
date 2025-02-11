@@ -7,9 +7,10 @@ import './globals.css';
 import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  metadataBase: new URL('https://mantrika.vercel.app'),
+  title: 'Mantrika | Sarwagya Singh',
+  description:
+    'Mantrika is an innovative AI assistant created by Sarwagya Singh and fine-tuned with DeepSeek. Built for general-purpose tasks, it delivers smart insights, efficient solutions, and friendly guidance—all communicated naturally in Hinglish, blending Hindi and simple English seamlessly.',
 };
 
 export const viewport = {
