@@ -19,7 +19,7 @@ export const DEFAULT_CHAT_MODEL: string = 'mantrika-model-small';
 export const myProvider = customProvider({
   languageModels: {
     'mantrika-model-small': wrapLanguageModel({
-      model: ollama("smollm2:360m"),
+      model: ollama("qwen2"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'mantrika-model-large': wrapLanguageModel({
@@ -31,11 +31,11 @@ export const myProvider = customProvider({
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'title-model': wrapLanguageModel({
-      model: ollama("smollm2:360m"),
+      model: ollama("qwen2"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'block-model': wrapLanguageModel({
-      model: ollama("smollm2:360m"),
+      model: ollama("qwen2"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
   },
