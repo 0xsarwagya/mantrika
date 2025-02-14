@@ -31,11 +31,11 @@ export const myProvider = customProvider({
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'title-model': wrapLanguageModel({
-      model: ollama("qwen2"),
+      model: groq('mixtral-8x7b-32768'),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'block-model': wrapLanguageModel({
-      model: ollama("qwen2"),
+      model: groq("mixtral-8x7b-32768"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
   },
