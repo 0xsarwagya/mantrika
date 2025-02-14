@@ -72,11 +72,7 @@ export const systemPrompt = ({
 }: {
   selectedChatModel: string;
 }) => {
-  if (selectedChatModel === 'mantrika-model-reasoning') {
-    return regularPrompt;
-  } else {
-    return `${regularPrompt}\n\n${blocksPrompt}`;
-  }
+  return regularPrompt;
 };
 
 export const codePrompt = `
