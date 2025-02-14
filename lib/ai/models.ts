@@ -1,4 +1,5 @@
 import { createGroq } from '@ai-sdk/groq';
+import { createOllama } from "ollama-ai-provider"
 import {
   customProvider,
   extractReasoningMiddleware,
@@ -7,14 +8,18 @@ import {
 
 export const groq = createGroq({
   apiKey: process.env.GROQ_API_KEY
-})
+});
 
-export const DEFAULT_CHAT_MODEL: string = 'mantrika-model-reasoning';
+export const ollama = createOllama({
+  baseURL: "http://ollama.0xsarwagya.codes/api"
+});
+
+export const DEFAULT_CHAT_MODEL: string = 'mantrika-model-small';
 
 export const myProvider = customProvider({
   languageModels: {
     'mantrika-model-small': wrapLanguageModel({
-      model: groq('llama-3.1-8b-instant'),
+      model: ollama("smollm2:360m"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'mantrika-model-large': wrapLanguageModel({
@@ -26,11 +31,11 @@ export const myProvider = customProvider({
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'title-model': wrapLanguageModel({
-      model: groq('gemma2-9b-it'),
+      model: ollama("smollm2:360m"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'block-model': wrapLanguageModel({
-      model: groq('llama3-70b-8192'),
+      model: ollama("smollm2:360m"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
   },
