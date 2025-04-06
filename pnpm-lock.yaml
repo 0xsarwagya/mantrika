@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@agentic/ai-sdk':
+        specifier: ^7.6.3
+        version: 7.6.3(ai@4.1.39(react@19.0.0-rc-45804af1-20241021)(zod@3.23.8))(zod@3.23.8)
       '@agentic/calculator':
         specifier: ^7.2.0
         version: 7.2.0(zod@3.23.8)
@@ -266,6 +269,11 @@ importers:
         version: 5.6.3
 
 packages:
+
+  '@agentic/ai-sdk@7.6.3':
+    resolution: {integrity: sha512-dwajziCvKOLosHybv/in+7Um3KnR+JbEIfhS1R1SFJTnKEYl0qi1AhW34w/Ku1+PHq4KCuh/lOsnjdlmLC6KkQ==}
+    peerDependencies:
+      ai: ^4.2.8
 
   '@agentic/calculator@7.2.0':
     resolution: {integrity: sha512-Cf9kuJG5S2UVhH0wp0jF5tluBD/tEWQpE0SsIhvxDI18q8BMZUWByje9/luSNPAYUA2b+rFiN5hrNZAs/vL8CA==}
@@ -3925,6 +3933,14 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@agentic/ai-sdk@7.6.3(ai@4.1.39(react@19.0.0-rc-45804af1-20241021)(zod@3.23.8))(zod@3.23.8)':
+    dependencies:
+      '@agentic/core': 7.6.3(zod@3.23.8)
+      ai: 4.1.39(react@19.0.0-rc-45804af1-20241021)(zod@3.23.8)
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - zod
 
   '@agentic/calculator@7.2.0(zod@3.23.8)':
     dependencies:

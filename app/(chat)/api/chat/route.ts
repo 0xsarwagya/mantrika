@@ -19,6 +19,7 @@ import {
   sanitizeResponseMessages,
 } from '@/lib/utils';
 import { generateTitleFromUserMessage } from '../../actions';
+import { searchTool } from '@/lib/ai/tools/search-tool';
 
 export const maxDuration = 60;
 
@@ -59,8 +60,12 @@ export async function POST(request: Request) {
         model: myProvider.languageModel(selectedChatModel),
         system: systemPrompt({ selectedChatModel }),
         messages,
-        maxSteps: 5,
-        experimental_activeTools: [],
+        maxSteps: 10,
+        tools: {
+          ...searchTool,
+        },
+        toolCallStreaming: true,
+        experimental_continueSteps: true,
         experimental_transform: smoothStream({ chunking: 'word' }),
         experimental_generateMessageId: generateUUID,
         onFinish: async ({ response, reasoning }) => {
