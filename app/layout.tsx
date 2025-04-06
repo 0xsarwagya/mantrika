@@ -59,7 +59,7 @@ export default async function RootLayout({
       </head>
       <body className="antialiased">
         <SessionProvider>
-          <InstallPrompt />
+          {/* <InstallPrompt /> */}
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
