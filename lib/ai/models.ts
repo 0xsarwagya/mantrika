@@ -23,11 +23,11 @@ export const myProvider = customProvider({
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'title-model': wrapLanguageModel({
-      model: groq('mixtral-8x7b-32768'),
+      model: groq('llama-3.3-70b-versatile'),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'block-model': wrapLanguageModel({
-      model: groq("mixtral-8x7b-32768"),
+      model: groq('gemma2-9b-it'),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
   },

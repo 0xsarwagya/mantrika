@@ -3,6 +3,7 @@ import { Toaster } from 'sonner';
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 import { SessionProvider } from 'next-auth/react';
+import { InstallPrompt } from '@/components/install-prompt';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mantrika.vercel.app'),
@@ -58,6 +59,7 @@ export default async function RootLayout({
       </head>
       <body className="antialiased">
         <SessionProvider>
+          <InstallPrompt />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
