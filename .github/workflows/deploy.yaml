@@ -10,6 +10,9 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v2
+        run: |
+          npm install --global pnpm@latest
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
