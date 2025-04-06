@@ -11,6 +11,12 @@ importers:
       '@agentic/calculator':
         specifier: ^7.2.0
         version: 7.2.0(zod@3.23.8)
+      '@agentic/searxng':
+        specifier: ^7.6.3
+        version: 7.6.3(zod@3.23.8)
+      '@agentic/weather':
+        specifier: ^7.6.3
+        version: 7.6.3(zod@3.23.8)
       '@ai-sdk/fireworks':
         specifier: ^0.1.8
         version: 0.1.8(zod@3.23.8)
@@ -270,6 +276,21 @@ packages:
     resolution: {integrity: sha512-s1yvt9pOhaVGfwoG6aTeXNmkjoMKDC+j+gwgsXPMy28HSHdKEkAWiwoCGoW8DVvEuQgxeOWN+rL6cIAM/JL++w==}
     peerDependencies:
       zod: ^3.23.8
+
+  '@agentic/core@7.6.3':
+    resolution: {integrity: sha512-Bin1p7+XJFq01wAQOLKaUVusNg4vt+gjZc3AMSipTd0sU26CnVHr45p917igt1JmMX3c1giBxb4nfbK5LJDLOA==}
+    peerDependencies:
+      zod: ^3.24.2
+
+  '@agentic/searxng@7.6.3':
+    resolution: {integrity: sha512-OcVVysAjgQhK/fK879AxXTdP39aKOHA3GAKaL7N1XPwJGVcirRMF570gJY0gU3N8PaSFQAnPzwTbi8y76greSw==}
+    peerDependencies:
+      zod: ^3.24.2
+
+  '@agentic/weather@7.6.3':
+    resolution: {integrity: sha512-1la25ts8z2ZM3fYig8BldCAubqkm0ECKE3vyhqFoCxG8fF3W0UdkdnFVhQBTzQSo+//m9uU2BMaY5nyBLxMrAQ==}
+    peerDependencies:
+      zod: ^3.24.2
 
   '@ai-sdk/fireworks@0.1.8':
     resolution: {integrity: sha512-3/xrROoWl3K6YA9VMej4p1M2eMS54xz7Z0x7QC7+q9ULLNhiZOpkbHVxDjsBayOlwiXH1MyZlKyDd4jJsgDzgg==}
@@ -3724,6 +3745,10 @@ packages:
     resolution: {integrity: sha512-6kSc32kT0rbwxD6QL1CYe8IqdzN/J/ILMrNK+HMQCKH3insCDRY/3ITb0vcBss0a3t72fzh2YSzj8ko1HgwT3g==}
     engines: {node: '>=16'}
 
+  type-fest@4.39.1:
+    resolution: {integrity: sha512-uW9qzd66uyHYxwyVBYiwS4Oi0qZyUqwjU+Oevr6ZogYiXt99EOYtwvzMSLw1c3lYo2HzJsep/NB23iEVEgjG/w==}
+    engines: {node: '>=16'}
+
   typed-array-buffer@1.0.2:
     resolution: {integrity: sha512-gEymJYKZtKXzzBzM4jqa9w6Q1Jjm7x2d+sh19AdsD4wqnMPDYyvwpsIc2Q/835kHuo3BEQ7CjelGhfTsoBb2MQ==}
     engines: {node: '>= 0.4'}
@@ -3921,6 +3946,36 @@ snapshots:
       type-fest: 4.34.1
       zod: 3.23.8
       zod-validation-error: 3.4.0(zod@3.23.8)
+    transitivePeerDependencies:
+      - babel-plugin-macros
+
+  '@agentic/core@7.6.3(zod@3.23.8)':
+    dependencies:
+      dedent: 1.5.3
+      delay: 6.0.0
+      jsonrepair: 3.12.0
+      ky: 1.7.5
+      openai-zod-to-json-schema: 1.0.3(zod@3.23.8)
+      p-throttle: 6.2.0
+      type-fest: 4.39.1
+      zod: 3.23.8
+      zod-validation-error: 3.4.0(zod@3.23.8)
+    transitivePeerDependencies:
+      - babel-plugin-macros
+
+  '@agentic/searxng@7.6.3(zod@3.23.8)':
+    dependencies:
+      '@agentic/core': 7.6.3(zod@3.23.8)
+      ky: 1.7.5
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - babel-plugin-macros
+
+  '@agentic/weather@7.6.3(zod@3.23.8)':
+    dependencies:
+      '@agentic/core': 7.6.3(zod@3.23.8)
+      ky: 1.7.5
+      zod: 3.23.8
     transitivePeerDependencies:
       - babel-plugin-macros
 
@@ -7567,6 +7622,8 @@ snapshots:
   type-fest@0.20.2: {}
 
   type-fest@4.34.1: {}
+
+  type-fest@4.39.1: {}
 
   typed-array-buffer@1.0.2:
     dependencies:

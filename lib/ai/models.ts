@@ -10,20 +10,12 @@ export const groq = createGroq({
   apiKey: process.env.GROQ_API_KEY
 });
 
-export const ollama = createOllama({
-  baseURL: "http://ollama.0xsarwagya.codes/api"
-});
-
-export const DEFAULT_CHAT_MODEL: string = 'mantrika-model-small';
+export const DEFAULT_CHAT_MODEL: string = 'mantrika-model-large';
 
 export const myProvider = customProvider({
   languageModels: {
-    'mantrika-model-small': wrapLanguageModel({
-      model: ollama("qwen2"),
-      middleware: extractReasoningMiddleware({ tagName: 'think' }),
-    }),
     'mantrika-model-large': wrapLanguageModel({
-      model: groq('llama-3.3-70b-versatile'),
+      model: groq("meta-llama/llama-4-scout-17b-16e-instruct"),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
     'mantrika-model-reasoning': wrapLanguageModel({
@@ -48,11 +40,6 @@ interface ChatModel {
 }
 
 export const chatModels: Array<ChatModel> = [
-  {
-    id: 'mantrika-model-small',
-    name: 'Mantrika Small model',
-    description: 'Small Model For Small Tasks',
-  },
   {
     id: 'mantrika-model-large',
     name: 'Mantrika Large model',

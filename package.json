@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@agentic/calculator": "^7.2.0",
+    "@agentic/searxng": "^7.6.3",
+    "@agentic/weather": "^7.6.3",
     "@ai-sdk/fireworks": "^0.1.8",
     "@ai-sdk/groq": "^1.1.7",
     "@ai-sdk/openai": "1.1.9",
