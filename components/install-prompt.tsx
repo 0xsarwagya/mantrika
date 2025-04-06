@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export function InstallPrompt() {
   const [isIOS, setIsIOS] = useState(false);
@@ -27,12 +27,11 @@ export function InstallPrompt() {
           To install this app on your iOS device, tap the share button
           <span role="img" aria-label="share icon">
             {' '}
-            ⎋{' '}
+            🔗{' '}
           </span>
-          and then "Add to Home Screen"
+          and then &quot;Add to Home Screen&quot;
           <span role="img" aria-label="plus icon">
             {' '}
-            ➕{' '}
           </span>
           .
         </p>
